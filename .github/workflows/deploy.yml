@@ -35,4 +35,4 @@ jobs:
         key: ${{ secrets.SSH_PRIVATE_KEY }}
         script: |
           docker pull kin4stat/vk_to_tg_bot:latest
-          docker run --restart=always -e "VK_TOKEN=${{ secrets.VK_TOKEN }}" -e "TG_TOKEN=${{ secrets.TG_TOKEN }}" -e "TG_CHANNEL_ID=${{ secrets.TG_ID }}" -e "VK_GROUP_ID=${{ secrets.VK_ID }}" -v persistent:/persistent -d kin4stat/vk_to_tg_bot:latest
+          docker run --restart=always --name main -e "VK_TOKEN=${{ secrets.VK_TOKEN }}" -e "TG_TOKEN=${{ secrets.TG_TOKEN }}" -e "TG_CHANNEL_ID=${{ secrets.TG_ID }}" -e "VK_GROUP_ID=${{ secrets.VK_ID }}" -v persistent:/persistent -d kin4stat/vk_to_tg_bot:latest
